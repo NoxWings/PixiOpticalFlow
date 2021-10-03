@@ -29,9 +29,6 @@ export default {
                 replacement: 'pixi.js/dist/esm/pixi.min.js',
             }]
         })] : [],
-        replace({
-            "process.env.NODE_ENV": JSON.stringify(envStr)
-        }),
         resolve({ preferBuiltins: false }),
         commonjs(),
         glslify({
