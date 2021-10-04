@@ -15,7 +15,7 @@ uniform vec3     uTint;
 vec2 getTileFromIndex(int tileIndex) {
     return vec2(
         int(mod(float(tileIndex), float(uTiles.x))),
-        int(float(tileIndex) / float(uTiles.x))
+        int(mod(float(tileIndex) / float(uTiles.x), float(uTiles.y)))
     );
 }
 

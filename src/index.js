@@ -31,7 +31,7 @@ function setup(loader, cache) {
     const imageUrls = Array(totalFrames).fill().map((_, n) => `flame_${n}.png`);
 
     const sprite1 = AnimatedSprite.fromFrames(imageUrls);
-    sprite1.anchor.set(1.5, 0.5);
+    sprite1.anchor.set(1, 0.5);
     sprite1.scale.set(2);
     container.addChild(sprite1);
 
@@ -45,7 +45,7 @@ function setup(loader, cache) {
     sprite2.anchor.set(0.5, 0.5);
     sprite2.scale.set(2);
     sprite2.animationSpeed = 0.23 * 0.23;
-    container.addChild(sprite2);
+    // container.addChild(sprite2);
 
     const sprite3 = new FlowSprite({
         atlas: Texture.from("flame.png"),
@@ -54,7 +54,7 @@ function setup(loader, cache) {
         motionEstimation: flowData.motionEstimation
     });
     sprite3.motionFlow = 1;
-    sprite3.anchor.set(-0.5, 0.5);
+    sprite3.anchor.set(0, 0.5);
     sprite3.scale.set(2);
     container.addChild(sprite3);
 
