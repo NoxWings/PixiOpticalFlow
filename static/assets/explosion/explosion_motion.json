@@ -1,0 +1,39 @@
+{
+    "frames": {
+        "explosion_motion.png": { "frame": { "x": 0, "y": 0, "w": 1024, "h": 1024 }, "trimmed": false },
+        "explosion_motion_0.png": { "frame": { "x": 0, "y": 0, "w": 204.8, "h": 204.8 }, "trimmed":  true },
+        "explosion_motion_1.png": { "frame": { "x": 204.8, "y": 0, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_motion_2.png": { "frame": { "x": 409.6, "y": 0, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_motion_3.png": { "frame": { "x": 614.4, "y": 0, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_motion_4.png": { "frame": { "x": 819.2, "y": 0, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_motion_5.png": { "frame": { "x": 0, "y": 204.8, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_motion_6.png": { "frame": { "x": 204.8, "y": 204.8, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_motion_7.png": { "frame": { "x": 409.6, "y": 204.8, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_motion_8.png": { "frame": { "x": 614.4, "y": 204.8, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_motion_9.png": { "frame": { "x": 819.2, "y": 204.8, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_motion_10.png": { "frame": { "x": 0, "y": 409.6, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_motion_11.png": { "frame": { "x": 204.8, "y": 409.6, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_motion_12.png": { "frame": { "x": 409.6, "y": 409.6, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_motion_13.png": { "frame": { "x": 614.4, "y": 409.6, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_motion_14.png": { "frame": { "x": 819.2, "y": 409.6, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_motion_15.png": { "frame": { "x": 0, "y": 614.4, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_motion_16.png": { "frame": { "x": 204.8, "y": 614.4, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_motion_17.png": { "frame": { "x": 409.6, "y": 614.4, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_motion_18.png": { "frame": { "x": 614.4, "y": 614.4, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_motion_19.png": { "frame": { "x": 819.2, "y": 614.4, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_motion_20.png": { "frame": { "x": 0, "y": 819.2, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_motion_21.png": { "frame": { "x": 204.8, "y": 819.2, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_motion_22.png": { "frame": { "x": 409.6, "y": 819.2, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_motion_23.png": { "frame": { "x": 614.4, "y": 819.2, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_motion_24.png": { "frame": { "x": 819.2, "y": 819.2, "w": 204.8, "h": 204.8 }, "trimmed": true }
+    },
+    "meta": {
+        "version": "1.0",
+        "image": "explosion_motion.png",
+        "format": "RGBA8888",
+        "scale": "1",
+        "size": { "w": 1024, "h": 1024 },
+        "motionEstimation": [0.037682, 0.037682],
+        "tiles": { "w": 5, "h": 5, "total": 25 }
+    }
+}

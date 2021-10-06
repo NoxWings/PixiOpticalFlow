@@ -16,81 +16,113 @@ const onResize = () => {
 window.addEventListener("resize", onResize);
 onResize();
 
-const flameJson = "assets/flame/flame.json";
-const flameMotionJson = "assets/flame/flame_motion.json";
+const assetNames = [
+    "flame",
+    "explosion"
+];
 
-app.loader
-    .add(flameJson)
-    .add(flameMotionJson)
+const allAssets = [
+    "assets/flame/flame.json",
+    "assets/flame/flame_motion.json",
+    "assets/explosion/explosion.json",
+    "assets/explosion/explosion_motion.json"
+]
+
+allAssets
+    .reduce((loader, asset) => loader.add(asset), app.loader)
     .load(setup);
 
 function setup(loader, cache) {
-    const flowData = cache[flameMotionJson].data.meta;
-    const totalFrames = flowData.tiles.total;
-    const fps = 30;
-    const imageUrls = Array(totalFrames).fill().map((_, n) => `flame_${n}.png`);
+    let regularSprite;
+    let opticalSprite;
+    let assetName = assetNames[1];
 
-    const sprite1 = AnimatedSprite.fromFrames(imageUrls);
-    sprite1.anchor.set(1, 0.5);
-    sprite1.scale.set(2);
-    container.addChild(sprite1);
+    function detachFromParent(sprite) {
+        if (sprite && sprite.parent) {
+            sprite.parent.removeChild(sprite);
+        }
+    }
 
-    const sprite2 = new FlowSprite({
-        atlas: Texture.from("flame.png"),
-        motionVectors: Texture.from("flame_motion.png"),
-        tiles: flowData.tiles,
-        motionEstimation: flowData.motionEstimation
-    });
-    sprite2.motionFlow = 0;
-    sprite2.anchor.set(0.5, 0.5);
-    sprite2.scale.set(2);
-    sprite2.animationSpeed = 0.23 * 0.23;
-    // container.addChild(sprite2);
+    function setupAsset(assetName) {
+        detachFromParent(regularSprite);
+        detachFromParent(opticalSprite);
 
-    const sprite3 = new FlowSprite({
-        atlas: Texture.from("flame.png"),
-        motionVectors: Texture.from("flame_motion.png"),
-        tiles: flowData.tiles,
-        motionEstimation: flowData.motionEstimation
-    });
-    sprite3.motionFlow = 1;
-    sprite3.anchor.set(0, 0.5);
-    sprite3.scale.set(2);
-    container.addChild(sprite3);
+        const motionJson = `assets/${assetName}/${assetName}_motion.json`;
+        const flowData = cache[motionJson].data.meta;
+        const totalFrames = flowData.tiles.total;
 
-    const text = new Text("heyy", { fontSize: 36, fill: "#fff" });
+        regularSprite = AnimatedSprite.fromFrames(Array(totalFrames).fill().map((_, n) =>
+            `${assetName}_${n}.png`)
+        );
+
+        regularSprite.anchor.set(1, 0.5);
+        regularSprite.scale.set(2);
+        container.addChildAt(regularSprite, 0);
+
+        opticalSprite = new FlowSprite({
+            atlas: Texture.from(`${assetName}.png`),
+            motionVectors: Texture.from(`${assetName}_motion.png`),
+            tiles: flowData.tiles,
+            motionEstimation: flowData.motionEstimation
+        });
+        opticalSprite.motionFlow = 1;
+        opticalSprite.anchor.set(0, 0.5);
+        opticalSprite.scale.set(2);
+        container.addChildAt(opticalSprite, 0);
+    }
+
+    const text = new Text("", { fontSize: 36, fill: "#fff" });
     text.anchor.set(0.5, 0);
     container.addChild(text);
 
+    const totalFrames = () => regularSprite.textures.length;
+
+    let gui;
     const controls = {
         reset: () => {
-            sprite1.gotoAndPlay(0)
-            sprite2.gotoAndPlay(0)
-            sprite3.gotoAndPlay(0)
+            regularSprite.gotoAndPlay(0)
+            opticalSprite.gotoAndPlay(0)
         },
         get currentTexture () {
-            return Math.trunc(sprite2.currentFrameIndex);
+            return Math.trunc(opticalSprite.currentFrameIndex);
         },
         set currentTexture (value) {
-            sprite1.gotoAndPlay(Math.trunc(value));
-            sprite2.gotoAndPlay(Math.trunc(value));
-            sprite3.gotoAndPlay(Math.trunc(value));
+            regularSprite.gotoAndPlay(Math.trunc(value));
+            opticalSprite.gotoAndPlay(Math.trunc(value));
         },
-        get speed () {
-            return sprite2.animationSpeed * totalFrames / fps;
+        get animationFps () {
+            return regularSprite.animationSpeed * 60;
         },
-        set speed (value) {
-            sprite1.animationSpeed = value * fps / totalFrames;
-            sprite2.animationSpeed = value * fps / totalFrames;
-            sprite3.animationSpeed = value * fps / totalFrames;
+        set animationFps (value) {
+            regularSprite.animationSpeed = value / 60;
+            opticalSprite.animationSpeed = value / 60;
+        },
+        get motionFlow () {
+            return opticalSprite.motionFlow;
+        },
+        set motionFlow (value) {
+            opticalSprite.motionFlow = value;
+        },
+        get asset () { return assetName; },
+        set asset (value) {
+            assetName = value;
+            setupAsset(assetName);
+            controls.animationFps = 5;
+            controls.reset();
+
+            if (gui) gui.destroy();
+
+            gui = new dat.GUI();
+
+            gui.add(controls, "asset", assetNames);
+            gui.add(controls, "reset");
+            gui.add(controls, "animationFps", 0, 30, 0.01);
+            gui.add(controls, "motionFlow", 0, 5, 0.01);
+            gui.add(controls, "currentTexture", 0, totalFrames()).listen();
         }
     };
-    const gui = new dat.GUI();
-    gui.add(controls, "reset");
-    gui.add(controls, "speed", 0, 1, 0.01).listen();
-    gui.add(controls, "currentTexture", 0, 16, 0.01).listen();
-    controls.speed = 0.2;
-    controls.reset();
+
+    controls.asset = assetName;
 
     app.ticker.add(delta => {
         text.position.set(0, -container.height / 2);

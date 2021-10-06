@@ -1,0 +1,40 @@
+{
+    "frames": {
+        "explosion.png": { "frame": { "x": 0, "y": 0, "w": 1024, "h": 1024 }, "trimmed": false },
+        "explosion_0.png": { "frame": { "x": 0, "y": 0, "w": 204.8, "h": 204.8 }, "trimmed":  true },
+        "explosion_1.png": { "frame": { "x": 204.8, "y": 0, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_2.png": { "frame": { "x": 409.6, "y": 0, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_3.png": { "frame": { "x": 614.4, "y": 0, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_4.png": { "frame": { "x": 819.2, "y": 0, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_5.png": { "frame": { "x": 0, "y": 204.8, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_6.png": { "frame": { "x": 204.8, "y": 204.8, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_7.png": { "frame": { "x": 409.6, "y": 204.8, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_8.png": { "frame": { "x": 614.4, "y": 204.8, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_9.png": { "frame": { "x": 819.2, "y": 204.8, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_10.png": { "frame": { "x": 0, "y": 409.6, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_11.png": { "frame": { "x": 204.8, "y": 409.6, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_12.png": { "frame": { "x": 409.6, "y": 409.6, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_13.png": { "frame": { "x": 614.4, "y": 409.6, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_14.png": { "frame": { "x": 819.2, "y": 409.6, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_15.png": { "frame": { "x": 0, "y": 614.4, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_16.png": { "frame": { "x": 204.8, "y": 614.4, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_17.png": { "frame": { "x": 409.6, "y": 614.4, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_18.png": { "frame": { "x": 614.4, "y": 614.4, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_19.png": { "frame": { "x": 819.2, "y": 614.4, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_20.png": { "frame": { "x": 0, "y": 819.2, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_21.png": { "frame": { "x": 204.8, "y": 819.2, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_22.png": { "frame": { "x": 409.6, "y": 819.2, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_23.png": { "frame": { "x": 614.4, "y": 819.2, "w": 204.8, "h": 204.8 }, "trimmed": true },
+        "explosion_24.png": { "frame": { "x": 819.2, "y": 819.2, "w": 204.8, "h": 204.8 }, "trimmed": true }
+    },
+    "meta": {
+        "version": "1.0",
+        "image": "explosion.png",
+        "format": "RGBA8888",
+        "size": {
+            "w": 1024,
+            "h": 1024
+        },
+        "scale": "1"
+    }
+}

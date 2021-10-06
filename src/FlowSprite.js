@@ -6,7 +6,6 @@ export class FlowSprite extends Mesh {
     constructor({ atlas, motionVectors, tiles, motionEstimation }) {
         const width = atlas.width / tiles.w;
         const height = atlas.height / tiles.h;
-        console.log(width, height);
 
         const data = {
             vertexPosition: [ 0, height, width, height, width, 0, 0, 0 ],
